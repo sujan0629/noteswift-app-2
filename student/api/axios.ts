@@ -1,11 +1,10 @@
-import instance from "axios"
+import axios from "axios"
 
-export const URI = "http://10.0.2.2:5000/api" 
+export const URI = "https://noteswift-demo-gnx1638rt-sujan-bhattas-projects.vercel.app/api"
 
-const api = instance.create({
+const api = axios.create({
     baseURL: URI,
-    withCredentials: true,
-    headers: { 'Access-Control-Allow-Origin': '*' }
+    withCredentials: true
 })
 
 export default api
