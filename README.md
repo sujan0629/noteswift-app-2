@@ -1,107 +1,25 @@
-NoteSwift Platform – Technical Overview
+# NoteSwift · student learning app
 
-NoteSwift is a full-stack, mobile-first EdTech platform designed to deliver structured online learning through a unified ecosystem for students, teachers, and administrators. The platform is architected as four tightly integrated applications backed by a centralized API and shared data layer, ensuring scalability, security, and long-term extensibility.
+An Expo/React Native student application for a broader learning-platform design. This public repository contains the [student app](student); the backend and teacher/admin applications described in earlier project notes are not included here.
 
-Platform Components
+## Source scope
 
-1. Student Mobile Application
-A cross-platform mobile app built with React Native and Expo, designed for performance, offline learning, and real-time engagement. Students can browse courses, stream video lectures, access PDFs, submit assignments, take tests, and receive push notifications. Offline downloads and background sync ensure uninterrupted learning.
+The student application includes routed learning interfaces, API clients, authentication state, reusable components, and mobile assets. It uses TypeScript, Expo Router, NativeWind, Zustand, Axios, and Expo SecureStore.
 
-2. Admin Web Application
-A powerful administrative dashboard built with Next.js 15, providing full control over users, courses, analytics, and revenue. Admins can manage platform operations, monitor engagement metrics, oversee content quality, handle payments, and configure system-wide settings.
+The package manifest declares Expo 53, React 19, and React Native 0.79. These are source dependency versions, not a claim that the app has been upgraded to the latest SDK.
 
-3. Teacher Web Application
-A dedicated educator interface, also built on Next.js 15, enabling teachers to create and manage courses, conduct live classes, design assignments and tests, track student progress, and analyze performance. The system supports grading workflows, content uploads, certificates, and revenue insights.
+## Run the student client
 
-4. Backend API Server
-A centralized backend powered by Node.js and Express.js, serving as the core integration layer for all applications. It manages authentication, authorization, data processing, file handling, AI services, real-time communication, and payment workflows through a secure, role-based API architecture.
+```bash
+cd student
+npm install
+npm start
+```
 
-Core Technology Stack
+The client needs a compatible backend. Review the [API configuration](student/api/README.md) and the API client code, then use a server address reachable from your simulator or physical device. A local backend is not supplied by this repository.
 
-Languages & Runtime
+Other app scripts include `npm run android`, `npm run ios`, `npm run web`, and `npm run lint`. Native build requirements depend on the platform and enabled modules.
 
-TypeScript (end-to-end type safety)
+## Boundaries
 
-Node.js 20+
-
-React 18+ / React Native 19+
-
-Frontend
-
-React Native + Expo (mobile)
-
-Next.js 15 (admin & teacher dashboards)
-
-Tailwind CSS, NativeWind, Radix UI
-
-Zustand for state management
-
-Backend
-
-Express.js with modular REST APIs
-
-JWT-based authentication with RBAC
-
-Firebase for auth verification and real-time services
-
-Database & Storage
-
-MongoDB with Mongoose ODM
-
-Cloudinary for media storage and CDN delivery
-
-AsyncStorage and offline caching on mobile
-
-AI & Intelligence
-
-Genkit AI with Google AI integrations
-
-Content recommendations
-
-Plagiarism detection
-
-Automated tagging and analytics insights
-
-Communication
-
-Expo Push Notifications
-
-Resend for transactional emails
-
-Twilio for SMS, OTP, and alerts
-
-WebSockets for real-time features and live classes
-
-Key Platform Capabilities
-
-Mobile-first learning with offline support
-
-Secure, role-based multi-tenant architecture
-
-AI-powered recommendations and assessment tools
-
-Real-time notifications, messaging, and live classes
-
-Scalable media delivery via CDN
-
-Subscription and revenue management
-
-Analytics dashboards for admins and educators
-
-Architecture Strengths
-
-Unified ecosystem with clearly separated roles
-
-Scalable cloud-native design ready for growth
-
-Type-safe codebase across all applications
-
-AI-enhanced learning workflows
-
-Offline-ready mobile experience
-
-Strong security posture with layered authentication
-
-Positioning Summary
-
-NoteSwift is not just a course app. It’s an extensible learning infrastructure designed to scale from local classrooms to large-scale digital education platforms. The architecture supports rapid feature expansion, AI-driven personalization, and long-term operational stability without re-platforming.
+The wider product design includes educator/admin tooling, live classes, recommendations, and offline learning. This repository alone does not establish that those services are implemented, deployed, or available. Validate each workflow against the client code and its connected backend; avoid inferring multi-tenant isolation, payment support, or offline guarantees from the original platform overview.
